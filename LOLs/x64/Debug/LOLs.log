@@ -1,5 +1,2 @@
 ﻿  main.cpp
-  shader.cpp
-  Generating Code...
-LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
   LOLs.vcxproj -> C:\Users\user\Documents\ERIC\repos\LOLs\x64\Debug\LOLs.exe

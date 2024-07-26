@@ -1,23 +1,6 @@
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
+#include"shader.h"
 
-#include <iostream>
-#include <string>
-#include <sstream>
-#include <fstream>
-
-#include "shader.h"
-
-
-std::string vertexCode;
-std::fstream vpath;
-
-std::string fragmentCode;
-std::fstream fpath;
-
-const char* vShaderCode;
-const char* fShaderCode;
-
+// Reads a text file and outputs a string with everything in the text file
 std::string get_file_contents(const char* filename)
 {
 	std::ifstream in(filename, std::ios::binary);
@@ -34,9 +17,7 @@ std::string get_file_contents(const char* filename)
 	throw(errno);
 }
 
-
-
-
+// Constructor that build the Shader Program from 2 different shaders
 Shader::Shader(const char* vertexFile, const char* fragmentFile)
 {
 	// Read vertexFile and fragmentFile and store the strings
@@ -81,16 +62,19 @@ Shader::Shader(const char* vertexFile, const char* fragmentFile)
 
 }
 
+// Activates the Shader Program
 void Shader::Activate()
 {
 	glUseProgram(ID);
 }
 
+// Deletes the Shader Program
 void Shader::Delete()
 {
 	glDeleteProgram(ID);
 }
 
+// Checks if the different Shaders have compiled properly
 void Shader::compileErrors(unsigned int shader, const char* type)
 {
 	// Stores status of compilation
